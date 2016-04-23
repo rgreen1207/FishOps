@@ -139,7 +139,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //createPoly();
         parse();
-        createHashMap();
+        //createHashMap();
 
         googleMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
