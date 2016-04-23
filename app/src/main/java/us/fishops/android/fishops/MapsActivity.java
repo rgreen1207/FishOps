@@ -13,6 +13,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import java.io.*;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -24,6 +25,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private HashMap<Polygon, String> hMap = new HashMap<Polygon, String>();
     private final static String TAG="j";
+    File MPA = new File("../../../../../res/PN_MPAs.txt");
+
+    ///home/ryan/Desktop/FishOps/app/src/main/java/us/fishops/android/fishops/MapsActivity.java
+    ///home/ryan/Desktop/FishOps/app/src/main/res/PN_MPAs
+    String line = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +106,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return p;
     }
 
+//    private void createHashMap()
+//    {
+//        try{
+//            FileReader fileReader = new FileReader(MPA);
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            while(MPA != eof)
+//            {
+//                hMap.put(createPoly(),MPA.getLine());
+//            }
+//        }
+//    }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -121,6 +139,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //createPoly();
         parse();
+        createHashMap();
 
         googleMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
