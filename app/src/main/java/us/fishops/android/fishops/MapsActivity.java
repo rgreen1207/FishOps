@@ -69,7 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(14.5995, 120.9842),9.0f));
 
-        createPoly();
+        //createPoly();
 
         googleMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
