@@ -42,5 +42,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng manila = new LatLng(14.5995, 120.9842);
         mMap.addMarker(new MarkerOptions().position(manila).title("Marker in Manila"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(14.5995, 120.9842),17.0f));
     }
 }
