@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import java.io.*;
 
 import java.util.HashMap;
 
@@ -19,6 +20,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private HashMap<Polygon, String> hMap = new HashMap<Polygon, String>();
+    File MPA = new File("../../../../../res/PN_MPAs.txt");
+
+    ///home/ryan/Desktop/FishOps/app/src/main/java/us/fishops/android/fishops/MapsActivity.java
+    ///home/ryan/Desktop/FishOps/app/src/main/res/PN_MPAs
+    String line = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         polygon.setClickable(true);
     }
 
+//    private void createHashMap()
+//    {
+//        try{
+//            FileReader fileReader = new FileReader(MPA);
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            while(MPA != eof)
+//            {
+//                hMap.put(createPoly(),MPA.getLine());
+//            }
+//        }
+//    }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -69,7 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(14.5995, 120.9842),9.0f));
 
-        createPoly();
+        createHashMap();
 
         googleMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
