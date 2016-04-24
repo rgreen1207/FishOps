@@ -35,6 +35,7 @@ public class DisplayInformation extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
+
         Log.d(TAG, "onCreate2");
         setContentView(R.layout.activity_display_information);
 
@@ -59,7 +60,8 @@ public class DisplayInformation extends Activity {
 
         Log.d(TAG, "ifStatement");
 
-        Typeface.createFromAsset(getApplicationContext().getAssets(), "Oswald-Bold.ttf");
+        oswald = Typeface.createFromAsset(getApplicationContext().getAssets(), "Oswald-Bold.ttf");
+        //Typeface.createFromAsset(getApplicationContext().getAssets(), "Oswald-Bold.ttf");
         
         //Toast.makeText(this, result, Toast.LENGTH_LONG).show();
         if(result.equals("No Restrictions")){
