@@ -14,6 +14,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.zetterstrom.com.forecast.models.Forecast;
 import android.zetterstrom.com.forecast.ForecastClient;
 import android.zetterstrom.com.forecast.ForecastConfiguration;
 import android.zetterstrom.com.forecast.models.Alert;
@@ -35,8 +37,12 @@ import us.fishops.android.fishops.MapsActivity;
 
 public class MainActivity extends AppCompatActivity {
     final Handler handler = new Handler();
+    Forecast forecast;
+    TextView tv;
     Timer    timer = new Timer();
     MapsActivity mappy = new MapsActivity();
+    private String summary;
+    private Double temperature, distance;
 
     Button mpaBtn;
     Button weatherBtn;
@@ -67,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         };
-        timer.schedule(doAsynchronousTask, 0, 10);
+        timer.schedule(doAsynchronousTask, 0, 10000);
 
         //database stuff
         Log.d("Test", "Testy");
@@ -91,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+    public void goToWeather(View view) {
+        Intent intent = new Intent(this, WeatherActivity.class);
         startActivity(intent);
     }
     public void loadLaws(View view) {
@@ -117,19 +127,32 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public String getSummary(){
+        return this.summary;
+    }
+
+    public Double getTemperature(){
+        return this.temperature;
+    }
+
+    public Double getDistance(){
+        return this.distance;
+    }
+
+    public Forecast getForecast(){
+        return this.forecast;
+    }
+
     public void getWeather(LatLng markerPos){
-        ArrayList<String> p = new ArrayList<>();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_framelayout, new SnowFragment()).commit();
         ForecastConfiguration configuration = new ForecastConfiguration.Builder("4c53088bf37f39b40f21165b81d5b69f")
             .setCacheDirectory(getCacheDir()).build();
         ForecastClient.create(configuration);
         ForecastClient.getInstance().getForecast(markerPos.latitude, markerPos.longitude, new Callback<Forecast>(){
-            @Override
-            public void onResponse(Response<Forecast> response, ArrayList p){
+            public void onResponse(Response<Forecast> response){
                 String title, description, uri;
                 Date expires;
                 if (response.isSuccess()){
-                    Forecast forecast = response.body();
+                    forecast = response.body();
                     if (!(forecast.getAlerts().isEmpty())) {
                         for (Alert a : forecast.getAlerts()) {
                             title = a.getTitle();
@@ -155,8 +178,9 @@ public class MainActivity extends AppCompatActivity {
                             alert.show();
                         }
                     }
-
-                    //p.add(new ArrayList<String>(forecast.getCurrently().getSummary(), forecast.getCurrently().getApparentTemperature().toString(), forecast.getCurrently().getNearestStormDistance().toString()));
+                    summary = forecast.getCurrently().getSummary();
+                    temperature = forecast.getCurrently().getApparentTemperature();
+                    distance = forecast.getCurrently().getNearestStormDistance();
                 }
             }
             @Override
@@ -164,6 +188,5 @@ public class MainActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
-        return p;
     }
 }
