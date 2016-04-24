@@ -79,7 +79,6 @@ public class SnowFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_snow, container, false);
         mSnowAmountTextView = (TextView) view.findViewById(R.id.fragment_snow_amount_textview);
         mSnowLabelTextView = (TextView) view.findViewById(R.id.fragment_snow_label_textview);
-        mProgressBar = (ProgressBar) view.findViewById(R.id.fragment_snow_progressbar);
         showForecast();
         return view;
     }

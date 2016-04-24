@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-}
+
     public void getWeather(final double latitude, final double longitude){
         //getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_framelayout, new SnowFragment()).commit();
         ForecastConfiguration configuration = new ForecastConfiguration.Builder("4c53088bf37f39b40f21165b81d5b69f")

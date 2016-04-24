@@ -17,10 +17,6 @@
     <string name="some_restrictions">Merong limitasyon</string>
     <string name="no_fishing">Hindi pwedeng mangisda</string>
 
-    <string name="title_activity_weather">Panahon</string>
-    <string name="title_activity_law">Batas</string>
-    <string name="title_activity_decree">Utos</string>
-    <string name="title_activity_res">Ibang tulong</string>
     <string name="title_activity_laws">Mga Batas</string>
 
     <string-array name="names_array">
