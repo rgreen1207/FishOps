@@ -16,7 +16,7 @@
             android:background="#1B2533"
             android:text="@string/title_activity_maps"
             android:textColor="#FFFFFF"
-            android:textSize="36sp"
+            android:textSize="30sp"
             android:id="@+id/mpa_btn"
             android:onClick="goToMap" />
         <Button
@@ -26,7 +26,7 @@
             android:background="#555423"
             android:text="@string/title_activity_weather"
             android:textColor="#FFFFFF"
-            android:textSize="36sp"
+            android:textSize="30sp"
             android:id="@+id/weather_btn"
             android:onClick="goToMap"/>
     </LinearLayout>
@@ -40,22 +40,23 @@
             android:layout_width="0dp"
             android:layout_weight=".50"
             android:layout_height="180dp"
+            android:layout_marginTop="-20dp"
             android:background="#88865D"
-            android:text="@string/title_activity_law"
+            android:text="@string/title_activity_laws"
             android:onClick="loadLaws"
             android:textColor="#FFFFFF"
-            android:textSize="36sp"
+            android:textSize="30sp"
             android:id="@+id/laws_btn" />
         <Button
             android:layout_width="0dp"
             android:layout_weight=".50"
             android:layout_height="180dp"
             android:background="#31A2DC"
-            android:text="@string/title_activity_decree"
-            android:onClick="loadLaws"
+            android:text="@string/title_activity_resources"
+            android:onClick="loadResources"
             android:textColor="#FFFFFF"
-            android:textSize="36sp"
-            android:id="@+id/decree_btn" />
+            android:textSize="30sp"
+            android:id="@+id/resources_btn" />
     </LinearLayout>
 
     <LinearLayout
