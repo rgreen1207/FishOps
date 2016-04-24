@@ -245,6 +245,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onPolygonClick(Polygon polygon) {
                 String name = hMap.get(polygon);
                 Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -276,7 +277,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     //Toast.makeText(MapsActivity.this, "Entered a MPA", Toast.LENGTH_SHORT).show();
 
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MapsActivity.this);
-                    builder1.setMessage("You have entered " + name  + ", a Marine Protected Area");
+                    builder1.setMessage(getResources().getString(R.string.alert_dialog_1) + " " + name + getResources().getString(R.string.alert_dialog_2));
                     builder1.setCancelable(true);
 
                     builder1.setPositiveButton(

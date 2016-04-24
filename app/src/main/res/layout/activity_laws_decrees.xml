@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context="us.fishops.android.fishops.LawsDecreesActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/laws_full_text"
+        android:textSize="24sp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:maxLines="50"
+        android:scrollbars="vertical"
+        android:id="@+id/lawsView" />
+
+</RelativeLayout>

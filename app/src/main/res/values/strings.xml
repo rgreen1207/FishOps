@@ -4,6 +4,8 @@
     <string name="app_name" translatable="false">FishOps</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="fishing_map" id="fishingbutton">Fishing Map</string>
+
 
     <string name="api_attribution">Powered by Forecast</string>
     <string name="snowfall_none">No snow is expected</string>
@@ -28,6 +30,8 @@
     <string name="title_activity_res">Resources</string>
     <string name="title_activity_laws">Laws</string>
 
+    <string name="alert_dialog_1">You have entered  </string>
+    <string name="alert_dialog_2">, a Marine Protected Area</string>
     <string name="justAlerts">Alert:</string>
     <string name="noAlerts">There are no alerts.</string>
     <string name="yesAlerts">There are</string>
@@ -601,4 +605,28 @@
         <item>123.592140002000065,9.288780007000071 123.594750010000098,9.288420023000072 123.594890007,9.28652999500008 123.595110021000096,9.286419970000054 123.595330025000067,9.284780020000085 123.592689980000046,9.284690039000054 123.592140002000065,9.288780007000071</item>
         <item>123.59282986900007,9.278840165000076 123.595799923000072,9.278879977000088 123.595839986000101,9.274420048000081 123.594290924,9.274025282000082 123.593430074000025,9.276340107000067 123.59282986900007,9.278840165000076</item>
     </string-array>
+    <string name="title_activity_laws">Laws/Decrees</string>
+    <string name="title_activity_resources">Resources</string>
+    <string name="laws_full_text"><b>Warning! The following will violate the provisions of the Philippine Fisheries Code of 1998:</b>\n\n
+&#8226; Fishing without a valid license, authorization or permit\n
+&#8226; Fishing without reporting the catch or misreporting the catch\n
+&#8226; Fishing in a closed area or during a closed season\n
+&#8226; Fishing of prohibited species\n
+&#8226; Fishing with the use of prohibited gear or methods\n
+&#8226; Falsifying, concealing or tampering with vessel markings, identity or registration to conceal vessel identity or lack of registration\n
+&#8226; Concealing, tampering or disposing of evidence relating to an investigation of a violation\n
+&#8226; Assaulting, resisting, intimidating, harassing with law enforcer, or other duly authorized government officer\n
+&#8226; Intentionally tampering with or disabling the vessel monitoring system\n\n
+
+<b>The government will fine those fishermen and companies that will violate this code. Fine will start from about $5,000.00 to more than $45,000,000.00.</b> </string>
+    <string name="resources_full_text"><b>English:\n</b>
+            <b>Please report if you see any illegal fishing in the area:\n\n</b>
+            <b>Philippines Bureau of Fisheries and Aquatic Resources\n</b>
+                PCA Building, Diliman, Quezon City, Philippines\n
+                Contact: +63 (02)929-8074 or +63 (02)929-9597.\n\n
+            <b>Department of Environment and Natural Resources\n</b>
+                Visayas Avenue, Diliman, 110 Quezon City, Philippines\n
+                Contact: +63 (02)929-6626
+</string>
+
 </resources>
