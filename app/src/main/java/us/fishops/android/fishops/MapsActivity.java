@@ -272,7 +272,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 }
                 if(contained){
-                    Toast.makeText(MapsActivity.this, "Entered a MPA", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MapsActivity.this, "Entered a MPA", Toast.LENGTH_SHORT).show();
 
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MapsActivity.this);
                     builder1.setMessage("You have entered " + name  + ", a Marine Protected Area");
