@@ -33,6 +33,29 @@
 
     <string name="alert_dialog_1">Ikaw ay nasa  </string>
     <string name="alert_dialog_2">, isang protektadong lugar</string>
+    <string name="justAlerts">Babala:</string>
+    <string name="noAlerts">Walang babala.</string>
+    <string name="yesAlerts">Merong</string>
+    <string name="currentWeather">Kasalukuyang panahon:</string>
+    <string name="clearDay">Maaliwalas na araw</string>
+    <string name="clearNight">Maaliwalas na gabi</string>
+    <string name="rain">Ulan</string>
+    <string name="snow">Nyebe</string>
+    <string name="sleet">Sleet</string><!---comment-->
+    <string name="wind">Mahangin</string>
+    <string name="fog">Mahamog</string>
+    <string name="cloudy">Maulap</string>
+    <string name="partlyCloudyDay">Medyo maulap na araw</string>
+    <string name="partlyCloudyNight">Medyo maulap na gabi</string>
+    <string name="hail">Ulang yelo</string>
+    <string name="thunderstorm">Bagyo</string>
+    <string name="tornado">Buhawi</string>
+    <string name="defaultWeather">Walang uri</string>
+    <string name="tempOf">Sa temperatura:</string>
+    <string name="celsius">Celsius</string>
+    <string name="Farenheit">Farenheit</string>
+    <string name="nearestStorm">Distansya sa bagyo:</string>
+    <string name="miles">milya</string>
 
 
     <string name="title_activity_laws">Batas/Utos</string>
