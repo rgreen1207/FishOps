@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void loadLaws(View view) {
-        Intent intent = new Intent(this, Laws.class);
+        Intent intent = new Intent(this, LawsDecreesActivity.class);
         startActivity(intent);
     }
 
