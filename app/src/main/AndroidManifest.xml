@@ -43,7 +43,6 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".WeatherActivity" />
         <activity
             android:name=".LawsDecreesActivity"
             android:label="@string/title_activity_laws" />
@@ -64,6 +63,8 @@
         <activity
             android:name=".ResourcesActivity"
             android:label="@string/title_activity_resources"/>
+        <activity android:name=".WeatherActivity"
+            android:label="Weather"/>
     </application>
 
 </manifest>
