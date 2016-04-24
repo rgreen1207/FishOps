@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button mpaBtn;
     Button weatherBtn;
     Button lawBtn;
-    Button decreeBtn;
+    Button resourcesBtn;
     Typeface ebGaramond;
     Typeface oswald;
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mpaBtn = (Button) findViewById(R.id.mpa_btn);
         weatherBtn = (Button) findViewById(R.id.weather_btn);
         lawBtn = (Button) findViewById(R.id.laws_btn);
-        decreeBtn = (Button) findViewById(R.id.decree_btn);
+        resourcesBtn = (Button) findViewById(R.id.resources_btn);
 
         ebGaramond = Typeface.createFromAsset(getApplicationContext().getAssets(), "EBGaramondSC08-Regular.ttf");
         oswald = Typeface.createFromAsset(getApplicationContext().getAssets(), "Oswald-Bold.ttf");
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mpaBtn.setTypeface(oswald);
         weatherBtn.setTypeface(oswald);
         lawBtn.setTypeface(oswald);
-        decreeBtn.setTypeface(oswald);
+        resourcesBtn.setTypeface(oswald);
     }
 
     public void goToMap(View view) {
@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void loadLaws(View view) {
         Intent intent = new Intent(this, LawsDecreesActivity.class);
+        startActivity(intent);
+    }
+    public void loadResources(View view) {
+        Intent intent = new Intent(this, ResourcesActivity.class);
         startActivity(intent);
     }
 
