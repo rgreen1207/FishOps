@@ -1,9 +1,11 @@
 package us.fishops.android.fishops;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -145,8 +147,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onPolygonClick(Polygon polygon) {
                 String name = hMap.get(polygon);
-                Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+                sendMessage(name);
+
             }
         });
+    }
+    public void sendMessage(String name) {
+        Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, DisplayInformation.class);
+        intent.putExtra(DisplayInformation.EXTRA_MESSAGE, name);
+        startActivity(intent);
     }
 }
