@@ -4,6 +4,8 @@
     <string name="app_name" translatable="false">FishOps</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="fishing_map" id="fishingbutton">Fishing Map</string>
+
 
     <string name="api_attribution">Powered by Forecast</string>
     <string name="snowfall_none">No snow is expected</string>

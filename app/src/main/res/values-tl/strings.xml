@@ -4,6 +4,7 @@
     <string name="app_name" translatable="false">FishOps</string>
     <string name="title_activity_maps">MPA</string>
     <string name="title_activity_settings">Setting</string>
+    <string name="fishing_map" id="fishingbutton">Mapa ng Pala-isdaan</string>
 
     <!--Strings for input of fake data in the database-->
     <string name="no_restrictions">Walang limitasyon</string>
