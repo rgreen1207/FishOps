@@ -28,7 +28,7 @@
     <string name="title_activity_law">Batas</string>
     <string name="title_activity_decree">Utos</string>
     <string name="title_activity_res">Ibang Tulong</string>
-
+    <string name="title_activity_resources">Ibang Tulong</string>
     <string name="title_activity_laws">Mga Batas at Utos</string>
 
     <string name="laws_full_text"><b>Warning! The following will violate the provisions of the Philippine Fisheries Code of 1998:</b>\n\n
@@ -44,7 +44,7 @@
 
 <b>The government will fine those fishermen and companies that will violate this code. Fine will start from about $5,000.00 to more than $45,000,000.00.</b> </string>
 
-    <string name="more-info">karagdagang inpurmasyon</string>
+    <string name="more_info">karagdagang inpurmasyon</string>
 
     <string-array name="names_array">
         <item>Colase</item>
