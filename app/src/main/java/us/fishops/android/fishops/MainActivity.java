@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         ForecastClient.create(configuration);
         ForecastClient.getInstance().getForecast(markerPos.latitude, markerPos.longitude, new Callback<Forecast>(){
             @Override
-            public void onResponse(Response<Forecast> response, ArrayList p){
+            public void onResponse(Response<Forecast> response){
                 String title, description, uri;
                 Date expires;
                 if (response.isSuccess()){
@@ -155,8 +155,6 @@ public class MainActivity extends AppCompatActivity {
                             alert.show();
                         }
                     }
-
-                    //p.add(new ArrayList<String>(forecast.getCurrently().getSummary(), forecast.getCurrently().getApparentTemperature().toString(), forecast.getCurrently().getNearestStormDistance().toString()));
                 }
             }
             @Override
@@ -164,6 +162,6 @@ public class MainActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
-        return p;
+
     }
 }

@@ -321,7 +321,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             double lng = location.getLongitude();
 
             LatLng ll = new LatLng(lat, lng);
-            weatherMarker.setPosition(ll);
+            //weatherMarker.setPosition(ll);
         }
         return this.weatherMarker.getPosition();
     }
