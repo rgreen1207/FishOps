@@ -1,10 +1,11 @@
 package us.fishops.android.fishops;
 
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
 
+        //database stuff
+        Log.d("Test", "Testy");
+        MySQLiteHelper database = new MySQLiteHelper(this);
+        SQLiteDatabase db = database.getWritableDatabase();
+
+        //button stuff
         mpaBtn = (Button) findViewById(R.id.mpa_btn);
         weatherBtn = (Button) findViewById(R.id.weather_btn);
         lawBtn = (Button) findViewById(R.id.laws_btn);
@@ -41,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+    public void loadLaws(View view) {
+        Intent intent = new Intent(this, Laws.class);
         startActivity(intent);
     }
 
