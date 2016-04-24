@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <resources>
     <string name="app_name" translatable="false">FishOps</string>
     <string name="title_activity_maps">MPA</string>
     <string name="title_activity_settings">Settings</string>
-<<<<<<< HEAD
     <string name="title_activity_weather">Weather</string>
     <string name="title_activity_law">Law</string>
     <string name="title_activity_decree">Decrees</string>
     <string name="title_activity_res">Resources</string>
-</resources>
-=======
-
 
     <string-array name="names_array">
         <item>Colase</item>
@@ -563,4 +558,4 @@
         <item>123.59282986900007,9.278840165000076 123.595799923000072,9.278879977000088 123.595839986000101,9.274420048000081 123.594290924,9.274025282000082 123.593430074000025,9.276340107000067 123.59282986900007,9.278840165000076</item>
     </string-array>
 </resources>
->>>>>>> 3ffe499ee742096accaa4884b716e1f2940fec79
+
