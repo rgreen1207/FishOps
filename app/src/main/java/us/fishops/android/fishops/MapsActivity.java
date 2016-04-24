@@ -48,6 +48,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final static String TAG = "j";
     private GoogleApiClient mGoogleApiClient;
     private static final int REQUEST_CODE_LOCATION = 2;
+    private Marker weatherMarker;
     //File MPA = new File("../../../../../res/PN_MPAs.txt");
 
     ///home/ryan/Desktop/FishOps/app/src/main/java/us/fishops/android/fishops/MapsActivity.java
@@ -92,7 +93,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Pass an array of Lat/Long and String name
     private void createPoly(ArrayList<LatLng> points, String name) {
-
 //        Polygon polygon = mMap.addPolygon(new PolygonOptions()
 //        .add(new LatLng(14.675757,120.619596),new LatLng(14.655245,120.892407),new LatLng(14.517079,120.903715),new LatLng(14.506132,120.647866))
 //                .strokeColor(Color.RED)
@@ -135,18 +135,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Log.i(TAG, p.toString());
         return p;
     }
-
-//    private void createHashMap()
-//    {
-//        try{
-//            FileReader fileReader = new FileReader(MPA);
-//            BufferedReader bufferedReader = new BufferedReader(fileReader);
-//            while(MPA != eof)
-//            {
-//                hMap.put(createPoly(),MPA.getLine());
-//            }
-//        }
-//    }
 
     /**
      * Manipulates the map once available.
@@ -299,6 +287,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = new Intent(this, DisplayInformation.class);
         intent.putExtra(DisplayInformation.EXTRA_MESSAGE, name);
         startActivity(intent);
+    }
+
+    public LatLng getMarkerPosition(){
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        String provider = locationManager.getBestProvider(criteria, true);
+
+        Location location = null;
+
+        Log.i(TAG, "before permision check");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Request missing location permission.
+            Log.i(TAG, "missing permission");
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_CODE_LOCATION);
+        } else {
+            Log.i(TAG, "already had permision");
+            location = locationManager.getLastKnownLocation(provider);
+            Log.i(TAG, "set location in else statement");
+        }
+
+
+        location = locationManager.getLastKnownLocation(provider);
+
+        if(location == null) {
+            Log.i(TAG, "location is null");
+        }
+        else {
+            double lat = location.getLatitude();
+            double lng = location.getLongitude();
+
+            LatLng ll = new LatLng(lat, lng);
+            weatherMarker.setPosition(ll);
+        }
+        return this.weatherMarker.getPosition();
     }
 
     @Override
