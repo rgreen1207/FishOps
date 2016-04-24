@@ -43,6 +43,7 @@
             android:layout_height="180dp"
             android:background="#88865D"
             android:text="@string/title_activity_law"
+            android:onClick="loadLaws"
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             android:id="@+id/laws_btn" />
@@ -52,6 +53,7 @@
             android:layout_height="180dp"
             android:background="#31A2DC"
             android:text="@string/title_activity_decree"
+            android:onClick="loadLaws"
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             android:id="@+id/decree_btn" />

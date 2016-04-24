@@ -564,6 +564,19 @@
         <item>123.592140002000065,9.288780007000071 123.594750010000098,9.288420023000072 123.594890007,9.28652999500008 123.595110021000096,9.286419970000054 123.595330025000067,9.284780020000085 123.592689980000046,9.284690039000054 123.592140002000065,9.288780007000071</item>
         <item>123.59282986900007,9.278840165000076 123.595799923000072,9.278879977000088 123.595839986000101,9.274420048000081 123.594290924,9.274025282000082 123.593430074000025,9.276340107000067 123.59282986900007,9.278840165000076</item>
     </string-array>
+    <string name="title_activity_laws">Laws</string>
+    <string name="laws_full_text">Warning! The following will violate the provisions of the Philippine Fisheries Code of 1998:
+Fishing without a valid license, authorization or permit
+Fishing without reporting the catch or misreporting the catch
+Fishing in a closed area or during a closed season
+Fishing of prohibited species
+Fishing with the use of prohibited gear or methods
+Falsifying, concealing or tampering with vessel markings, identity or registration to conceal vessel identity or lack of registration
+Concealing, tampering or disposing of evidence relating to an investigation of a violation
+Assaulting, resisting, intimidating, harassing with law enforcer, or other duly authorized government officer
+Intentionally tampering with or disabling the vessel monitoring system
+
+The government will fine those fishermen and companies that will violate this code. Fine will start from about $5,000.00 to more than $45,000,000.00. </string>
 
 </resources>
 
