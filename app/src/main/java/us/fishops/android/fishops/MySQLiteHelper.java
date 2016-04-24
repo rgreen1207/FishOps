@@ -47,7 +47,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // SQL statements to fill in data
         String CREATE_MPA_TABLE = "CREATE TABLE mpa ( " +
                 "name TEXT, " +
-                "restrictions TEXT)";
+                "restrictions INT)";
 
         //create the table
         db.execSQL(CREATE_MPA_TABLE);
@@ -69,14 +69,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(KEY_NAME, mpaArray[i]);
 
+            String restriction = "";
+
             //insert random restrictions value from strings
             if(rand < 4) {
-                values.put(KEY_RESTRICTIONS, R.string.no_restrictions);
+                values.put(KEY_RESTRICTIONS, 0);
             } else if(rand < 8){
-                values.put(KEY_RESTRICTIONS, R.string.some_restrictions);
+                values.put(KEY_RESTRICTIONS, 1);
             } else {
-                values.put(KEY_RESTRICTIONS, R.string.no_fishing);
+                values.put(KEY_RESTRICTIONS, 2);
             }
+
+            Log.d("values", values.toString());
 
             //insert content
             db.insert(TABLE_MPA, null, values);

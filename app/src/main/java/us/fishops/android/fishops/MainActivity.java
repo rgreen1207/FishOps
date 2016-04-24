@@ -15,10 +15,9 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
 
-        Log.d("Test", "testy");
+        Log.d("Test", "Testy");
         MySQLiteHelper database = new MySQLiteHelper(this);
         SQLiteDatabase db = database.getWritableDatabase();
-
     }
 
     public void goToMap(View view) {
