@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FishOps</string>
-    <string name="title_activity_maps">Mapa</string>
-    <string name="title_activity_settings">Setting</string>
+    <string name="title_activity_maps">MPA</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_weather">Panahon</string>
+    <string name="title_activity_law">Batas</string>
+    <string name="title_activity_decree">Utos</string>
+    <string name="title_activity_res">Ibang Tulong</string>
 </resources>
