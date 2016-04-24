@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Criteria;
@@ -243,7 +244,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onPolygonClick(Polygon polygon) {
                 String name = hMap.get(polygon);
-                Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+                sendMessage(name);
 
             }
         });
@@ -293,6 +294,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
+    public void sendMessage(String name) {
+        Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, DisplayInformation.class);
+        intent.putExtra(DisplayInformation.EXTRA_MESSAGE, name);
+        startActivity(intent);
+    }
 
     @Override
     public void onStart() {

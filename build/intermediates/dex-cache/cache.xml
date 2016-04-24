@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Zac Leids\git\FishOps\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c85ec3373b01383a90bb8af0db63de8e5c1039e8">
+        <dex dex="C:\Users\Zac Leids\git\FishOps\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_f9334117272c42205773e67d7ce570f5167309cf\classes.dex" />
+    </item>
+
+</items>
