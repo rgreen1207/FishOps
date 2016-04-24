@@ -67,9 +67,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/imageView"
-            android:src="@drawable/fishops_logo_white"/>
+            android:src="@drawable/fishops_logo_V4"/>
     </LinearLayout>
 
 </RelativeLayout>
