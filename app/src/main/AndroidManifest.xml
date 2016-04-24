@@ -47,10 +47,10 @@
         <activity
             android:name=".WeatherActivity"/>
 
-        <activity
-            android:name=".SnowFragment" />
+        <!--<activity-->
+            <!--android:name=".SnowFragment" />-->
 
-        <activity android:name=".WeatherActivity"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <!--<activity android:name=".WeatherActivity"></activity>&lt;!&ndash; ATTENTION: This was auto-generated to add Google Play services to your project for-->
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"
