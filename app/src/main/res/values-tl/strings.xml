@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <resources>
-
-    <string name="app_name">FishOps</string>
+    <string name="app_name" translatable="false">FishOps</string>
     <string name="title_activity_maps">MPA</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="title_activity_weather">Panahon</string>
-    <string name="title_activity_law">Batas</string>
-    <string name="title_activity_decree">Utos</string>
-    <string name="title_activity_res">Ibang Tulong</string>
-
     <string name="fishing_map" id="fishingbutton">Mapa ng Pala-isdaan</string>
+
+
+    <string name="api_attribution">Hatid ng Forecast</string>
+    <string name="snowfall_none">Walang darating na nyebe</string>
+    <string name="snowfall_some">ng nyebe</string>
+    <string name="snowfall_amount">%1$.2f inches</string>
+    <string name="snowfall_error">Merong mali sa nyebe na nacolekta</string>
+    <string name="dialog_permission_error_title">Hindi maka-kuha ng lokasyon</string>
+    <string name="dialog_permission_permanently_denied_message">Para sa nyebe, dapat palitan ang Coarse Location Permission sa settings ng telepono</string>
+    <string name="dialog_permission_denied_message">Para sa nyebe, dapat palitan and Coarse Location Permission sa settings ng telepono</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_retry">Ulitin</string>
+    <string name="dialog_cancel">Kansilahin</string>
 
     <!--Strings for input of fake data in the database-->
     <string name="no_restrictions">Walang limitasyon</string>
     <string name="some_restrictions">Merong limitasyon</string>
     <string name="no_fishing">Hindi pwedeng mangisda</string>
 
-    <string name="title_activity_laws">Mga Batas</string>
+    <string name="title_activity_weather">Panahon</string>
+    <string name="title_activity_law">Batas</string>
+    <string name="title_activity_decree">Utos</string>
+    <string name="title_activity_res">Ibang Tulong</string>
+
+    <string name="title_activity_laws">Mga Batas at Utos</string>
+
+    <string name="laws_full_text"><b>Warning! The following will violate the provisions of the Philippine Fisheries Code of 1998:</b>\n\n
+&#8226; Fishing without a valid license, authorization or permit\n
+&#8226; Fishing without reporting the catch or misreporting the catch\n
+&#8226; Fishing in a closed area or during a closed season\n
+&#8226; Fishing of prohibited species\n
+&#8226; Fishing with the use of prohibited gear or methods\n
+&#8226; Falsifying, concealing or tampering with vessel markings, identity or registration to conceal vessel identity or lack of registration\n
+&#8226; Concealing, tampering or disposing of evidence relating to an investigation of a violation\n
+&#8226; Assaulting, resisting, intimidating, harassing with law enforcer, or other duly authorized government officer\n
+&#8226; Intentionally tampering with or disabling the vessel monitoring system\n\n
+
+<b>The government will fine those fishermen and companies that will violate this code. Fine will start from about $5,000.00 to more than $45,000,000.00.</b> </string>
+
 
     <string-array name="names_array">
         <item>Colase</item>
@@ -569,3 +595,4 @@
         <item>123.59282986900007,9.278840165000076 123.595799923000072,9.278879977000088 123.595839986000101,9.274420048000081 123.594290924,9.274025282000082 123.593430074000025,9.276340107000067 123.59282986900007,9.278840165000076</item>
     </string-array>
 </resources>
+
