@@ -3,38 +3,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="us.fishops.android.fishops.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fishing Map"
-        android:id="@+id/button"
-        android:onClick="goToMap"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp" />
+        android:id="@+id/linearLayout"
+        android:layout_alignParentEnd="false">
+        <Button
+            android:layout_width= "0dp"
+            android:layout_height="180dp"
+            android:layout_weight=".50"
+            android:background="#1B2533"
+            android:text="@string/title_activity_maps"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:id="@+id/mpa_btn"
+            android:onClick="goToMap" />
+        <Button
+            android:layout_width= "0dp"
+            android:layout_height="180dp"
+            android:layout_weight = ".50"
+            android:background="#555423"
+            android:text="@string/title_activity_weather"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:id="@+id/weather_btn"
+            android:onClick="goToMap"/>
+    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Laws and Regulations"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:layout_marginTop="180dp"
+        android:id="@+id/linearLayout2">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight=".50"
+            android:layout_height="180dp"
+            android:background="#88865D"
+            android:text="@string/title_activity_law"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:id="@+id/laws_btn" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight=".50"
+            android:layout_height="180dp"
+            android:background="#31A2DC"
+            android:text="@string/title_activity_decree"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:id="@+id/decree_btn" />
+    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:id="@+id/button3"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1B2533"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView"
+            android:src="@drawable/fishops_logo_white"/>
+    </LinearLayout>
 
 </RelativeLayout>

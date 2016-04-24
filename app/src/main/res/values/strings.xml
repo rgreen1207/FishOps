@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name" translatable="false">FishOps</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">MPA</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_weather">Weather</string>
+    <string name="title_activity_law">Law</string>
+    <string name="title_activity_decree">Decrees</string>
+    <string name="title_activity_res">Resources</string>
 </resources>
