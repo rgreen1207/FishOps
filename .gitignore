@@ -1,3 +1,6 @@
+autocrlf = input
+safecrlf = false
+
 # Built application files
 /*/build/
 
