@@ -5,6 +5,9 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     Button weatherBtn;
     Button lawBtn;
     Button decreeBtn;
-    Button settingsBtn;
     Typeface ebGaramond;
     Typeface oswald;
     @Override
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         weatherBtn = (Button) findViewById(R.id.weather_btn);
         lawBtn = (Button) findViewById(R.id.laws_btn);
         decreeBtn = (Button) findViewById(R.id.decree_btn);
-        settingsBtn = (Button) findViewById(R.id.settings_button);
 
         ebGaramond = Typeface.createFromAsset(getApplicationContext().getAssets(), "EBGaramondSC08-Regular.ttf");
         oswald = Typeface.createFromAsset(getApplicationContext().getAssets(), "Oswald-Bold.ttf");
@@ -36,13 +37,25 @@ public class MainActivity extends AppCompatActivity {
         weatherBtn.setTypeface(oswald);
         lawBtn.setTypeface(oswald);
         decreeBtn.setTypeface(oswald);
-        settingsBtn.setTypeface(oswald);
-
-
     }
 
     public void goToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_setting) {
+            Log.d("DEBUG", "Setting button selected");
+        }
+        return true;
     }
 }
