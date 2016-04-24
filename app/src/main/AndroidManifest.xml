@@ -47,6 +47,8 @@
         <activity
             android:name=".LawsDecreesActivity"
             android:label="@string/title_activity_laws" />
+        <activity android:name=".DisplayInformation"
+                  android:label="Information"/>
         <!-- <activity -->
         <!-- android:name=".SnowFragment" /> -->
 
