@@ -101,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResourcesActivity.class);
         startActivity(intent);
     }
+    public void goToWeather(View view){
+        Intent intent = new Intent(this, WeatherActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -162,6 +166,5 @@ public class MainActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
-
     }
 }
