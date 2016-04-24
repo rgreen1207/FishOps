@@ -47,6 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final static String TAG = "j";
     private GoogleApiClient mGoogleApiClient;
     private static final int REQUEST_CODE_LOCATION = 2;
+    private Marker weatherMarker;
     //File MPA = new File("../../../../../res/PN_MPAs.txt");
 
     ///home/ryan/Desktop/FishOps/app/src/main/java/us/fishops/android/fishops/MapsActivity.java
@@ -287,11 +288,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             });
                     AlertDialog alert = builder1.create();
                     alert.show();
+
+                    weatherMarker = marker;
                 }
             }
         });
     }
 
+    public LatLng getMarkerPosition(){
+        return this.weatherMarker.getPosition();
+    }
 
     @Override
     public void onStart() {

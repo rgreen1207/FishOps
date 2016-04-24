@@ -28,6 +28,29 @@
     <string name="title_activity_res">Resources</string>
     <string name="title_activity_laws">Laws</string>
 
+    <string name="justAlerts">Alert:</string>
+    <string name="noAlerts">There are no alerts.</string>
+    <string name="yesAlerts">There are</string>
+    <string name="currentWeather">Current weather:</string>
+    <string name="clearDay">Clear Day</string>
+    <string name="clearNight">Clear Night</string>
+    <string name="rain">Rain</string>
+    <string name="snow">Snow</string>
+    <string name="sleet">Sleet</string>
+    <string name="wind">Wind</string>
+    <string name="fog">Fog</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="partlyCloudyDay">Partly Cloudy Day</string>
+    <string name="partlyCloudyNight">Party Cloudy Night</string>
+    <string name="hail">Hail</string>
+    <string name="thunderstorm">Thunderstorm</string>
+    <string name="tornado">Tornado</string>
+    <string name="defaultWeather">Unknown</string>
+    <string name="tempOf">With a temperature of:</string>
+    <string name="celsius">Celsius</string>
+    <string name="Farenheit">Farenheit</string>
+    <string name="nearestStorm">Distance to nearest storm:</string>
+    <string name="miles">miles</string>
 
     <string-array name="names_array">
         <item>Colase</item>
