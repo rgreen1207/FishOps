@@ -31,20 +31,56 @@
     <string name="title_activity_resources">Ibang Tulong</string>
     <string name="title_activity_laws">Mga Batas at Utos</string>
 
-    <string name="laws_full_text"><b>Warning! The following will violate the provisions of the Philippine Fisheries Code of 1998:</b>\n\n
-&#8226; Fishing without a valid license, authorization or permit\n
-&#8226; Fishing without reporting the catch or misreporting the catch\n
-&#8226; Fishing in a closed area or during a closed season\n
-&#8226; Fishing of prohibited species\n
-&#8226; Fishing with the use of prohibited gear or methods\n
-&#8226; Falsifying, concealing or tampering with vessel markings, identity or registration to conceal vessel identity or lack of registration\n
-&#8226; Concealing, tampering or disposing of evidence relating to an investigation of a violation\n
-&#8226; Assaulting, resisting, intimidating, harassing with law enforcer, or other duly authorized government officer\n
-&#8226; Intentionally tampering with or disabling the vessel monitoring system\n\n
+    <string name="alert_dialog_1">Ikaw ay nasa  </string>
+    <string name="alert_dialog_2">, isang protektadong lugar</string>
+    <string name="justAlerts">Babala:</string>
+    <string name="noAlerts">Walang babala.</string>
+    <string name="yesAlerts">Merong</string>
+    <string name="currentWeather">Kasalukuyang panahon:</string>
+    <string name="clearDay">Maaliwalas na araw</string>
+    <string name="clearNight">Maaliwalas na gabi</string>
+    <string name="rain">Ulan</string>
+    <string name="snow">Nyebe</string>
+    <string name="sleet">Sleet</string><!---comment-->
+    <string name="wind">Mahangin</string>
+    <string name="fog">Mahamog</string>
+    <string name="cloudy">Maulap</string>
+    <string name="partlyCloudyDay">Medyo maulap na araw</string>
+    <string name="partlyCloudyNight">Medyo maulap na gabi</string>
+    <string name="hail">Ulang yelo</string>
+    <string name="thunderstorm">Bagyo</string>
+    <string name="tornado">Buhawi</string>
+    <string name="defaultWeather">Walang uri</string>
+    <string name="tempOf">Sa temperatura:</string>
+    <string name="celsius">Celsius</string>
+    <string name="Farenheit">Farenheit</string>
+    <string name="nearestStorm">Distansya sa bagyo:</string>
+    <string name="miles">milya</string>
 
-<b>The government will fine those fishermen and companies that will violate this code. Fine will start from about $5,000.00 to more than $45,000,000.00.</b> </string>
+    <string name="title_activity_resources">Ibang Tulong</string>
+    <string name="laws_full_text"><b>Babala! Labag sa batas (the Philippine Fisheries Code of 1998) ang:
+</b>\n\n
+&#8226; Walang lisensya o pahintulot\n
+&#8226; Hindi i-uulat ang kuha\n
+&#8226; Mangisda sa saradong ugar o hindi panahon nang pangingisda\n
+&#8226; Mangisda ng nanganganib na isda\n
+&#8226; Gumamit ng pinagbabawal na kagamitan\n
+&#8226; Sirang rehistrasyon ng bangka o walang rehistrasyon\n
+&#8226; Sirang ebidensya ng imbestigasyon ng paglabag sa batas\n
+&#8226; Makialam o mang-away ng opisyal sa gobyerno\n
+&#8226; Makialam sa sistema ng patrolya\n\n
 
     <string name="more_info">karagdagang inpurmasyon</string>
+<b>Ang gobyerno ay magmumulta ng mga mangingisda at companya na lalabag sa mga batas na ito. Ang multa ay mag-uumpisa sa ₱5,000.00 hanggang sa mahigit kumulang na ₱45,000,000.00.</b> </string>
+    <string name="resources_full_text"><b>Tagalog:\n</b>
+            <b>Pakiusap! I-ulat kapag nakakita ng mga ilegal na pangingisda.\n\n</b>
+            <b>Philippines Bureau of Fisheries and Aquatic Resources\n</b>
+                PCA Building, Diliman, Quezon City, Philippines\n
+                Contact: +63 (02)929-8074 or +63 (02)929-9597.\n\n
+            <b>Department of Environment and Natural Resources\n</b>
+                Visayas Avenue, Diliman, 110 Quezon City, Philippines\n
+                Contact: +63 (02)929-6626
+</string>
 
     <string-array name="names_array">
         <item>Colase</item>

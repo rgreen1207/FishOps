@@ -47,6 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final static String TAG = "j";
     private GoogleApiClient mGoogleApiClient;
     private static final int REQUEST_CODE_LOCATION = 2;
+    private Marker weatherMarker;
     //File MPA = new File("../../../../../res/PN_MPAs.txt");
 
     ///home/ryan/Desktop/FishOps/app/src/main/java/us/fishops/android/fishops/MapsActivity.java
@@ -244,6 +245,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onPolygonClick(Polygon polygon) {
                 String name = hMap.get(polygon);
                 Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -275,7 +277,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     //Toast.makeText(MapsActivity.this, "Entered a MPA", Toast.LENGTH_SHORT).show();
 
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MapsActivity.this);
-                    builder1.setMessage("You have entered " + name  + ", a Marine Protected Area");
+                    builder1.setMessage(getResources().getString(R.string.alert_dialog_1) + " " + name + getResources().getString(R.string.alert_dialog_2));
                     builder1.setCancelable(true);
 
                     builder1.setPositiveButton(
@@ -287,11 +289,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             });
                     AlertDialog alert = builder1.create();
                     alert.show();
+
+                    weatherMarker = marker;
                 }
             }
         });
     }
 
+    public LatLng getMarkerPosition(){
+        return this.weatherMarker.getPosition();
+    }
 
     @Override
     public void onStart() {
