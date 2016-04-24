@@ -4,6 +4,10 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
+    repositories {
+        jcenter()
+    }
+
     defaultConfig {
         applicationId "us.fishops.android.fishops"
         minSdkVersion 19
