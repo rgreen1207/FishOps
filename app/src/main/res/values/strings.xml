@@ -29,6 +29,9 @@
     <string name="title_activity_decree">Decrees</string>
     <string name="title_activity_res">Resources</string>
 
+    <string name="alert_dialog_1">You have entered  </string>
+    <string name="alert_dialog_2">, a Marine Protected Area</string>
+
     <string-array name="names_array">
         <item>Colase</item>
         <item>Pasil</item>
