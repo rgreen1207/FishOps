@@ -283,7 +283,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void sendMessage(String name) {
-        Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, DisplayInformation.class);
         intent.putExtra(DisplayInformation.EXTRA_MESSAGE, name);
         startActivity(intent);
