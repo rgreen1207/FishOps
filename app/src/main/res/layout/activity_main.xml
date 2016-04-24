@@ -9,6 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="us.fishops.android.fishops.MainActivity">
 
+    <!--<FrameLayout-->
+        <!--android:id="@+id/activity_main_framelayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

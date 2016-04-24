@@ -46,7 +46,13 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".WeatherActivity"></activity>
+
+        <activity
+            android:name=".WeatherActivity"/>
+
+        <activity
+            android:name=".SnowFragment" />
+
     </application>
 
 </manifest>
