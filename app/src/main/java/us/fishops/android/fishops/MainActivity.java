@@ -51,23 +51,23 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
 
-        TimerTask doAsynchronousTask = new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(new Runnable() {
-                    @SuppressWarnings("unchecked")
-                    public void run() {
-                        try {
-                            getWeather(mappy.getMarkerPosition());
-                        }
-                        catch (Exception e) {
-                            // TODO Auto-generated catch block
-                        }
-                    }
-                });
-            }
-        };
-        timer.schedule(doAsynchronousTask, 0, 10);
+//        TimerTask doAsynchronousTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                handler.post(new Runnable() {
+//                    @SuppressWarnings("unchecked")
+//                    public void run() {
+//                        try {
+//                            getWeather(mappy.getMarkerPosition());
+//                        }
+//                        catch (Exception e) {
+//                            // TODO Auto-generated catch block
+//                        }
+//                    }
+//                });
+//            }
+//        };
+//        timer.schedule(doAsynchronousTask, 0, 10);
 
         //database stuff
         Log.d("Test", "Testy");
@@ -121,50 +121,50 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void getWeather(LatLng markerPos){
-        ArrayList<String> p = new ArrayList<>();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_framelayout, new SnowFragment()).commit();
-        ForecastConfiguration configuration = new ForecastConfiguration.Builder("4c53088bf37f39b40f21165b81d5b69f")
-            .setCacheDirectory(getCacheDir()).build();
-        ForecastClient.create(configuration);
-        ForecastClient.getInstance().getForecast(markerPos.latitude, markerPos.longitude, new Callback<Forecast>(){
-            @Override
-            public void onResponse(Response<Forecast> response){
-                String title, description, uri;
-                Date expires;
-                if (response.isSuccess()){
-                    Forecast forecast = response.body();
-                    if (!(forecast.getAlerts().isEmpty())) {
-                        for (Alert a : forecast.getAlerts()) {
-                            title = a.getTitle();
-                            description = a.getDescription();
-                            uri = a.getUri();
-                            expires = a.getExpires();
-
-                            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                            builder1.setMessage(
-                                    "@strings/justAlerts\n" +
-                                    title + "\n" + description + "\n" + uri + "\n" + expires
-                            );
-                            builder1.setCancelable(true);
-
-                            builder1.setPositiveButton(
-                                    "Ok",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            dialog.cancel();
-                                        }
-                                    });
-                            AlertDialog alert = builder1.create();
-                            alert.show();
-                        }
-                    }
-                }
-            }
-            @Override
-            public void onFailure(Throwable t){
-                t.printStackTrace();
-            }
-        });
-    }
+//    public void getWeather(LatLng markerPos){
+//        ArrayList<String> p = new ArrayList<>();
+//        //getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_framelayout, new SnowFragment()).commit();
+//        ForecastConfiguration configuration = new ForecastConfiguration.Builder("4c53088bf37f39b40f21165b81d5b69f")
+//            .setCacheDirectory(getCacheDir()).build();
+//        ForecastClient.create(configuration);
+//        ForecastClient.getInstance().getForecast(markerPos.latitude, markerPos.longitude, new Callback<Forecast>(){
+//            @Override
+//            public void onResponse(Response<Forecast> response){
+//                String title, description, uri;
+//                Date expires;
+//                if (response.isSuccess()){
+//                    Forecast forecast = response.body();
+//                    if (!(forecast.getAlerts() == null)) {
+//                        for (Alert a : forecast.getAlerts()) {
+//                            title = a.getTitle();
+//                            description = a.getDescription();
+//                            uri = a.getUri();
+//                            expires = a.getExpires();
+//
+//                            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+//                            builder1.setMessage(
+//                                    "@strings/justAlerts\n" +
+//                                    title + "\n" + description + "\n" + uri + "\n" + expires
+//                            );
+//                            builder1.setCancelable(true);
+//
+//                            builder1.setPositiveButton(
+//                                    "Ok",
+//                                    new DialogInterface.OnClickListener() {
+//                                        public void onClick(DialogInterface dialog, int id) {
+//                                            dialog.cancel();
+//                                        }
+//                                    });
+//                            AlertDialog alert = builder1.create();
+//                            alert.show();
+//                        }
+//                    }
+//                }
+//            }
+//            @Override
+//            public void onFailure(Throwable t){
+//                t.printStackTrace();
+//            }
+//        });
+//    }
 }

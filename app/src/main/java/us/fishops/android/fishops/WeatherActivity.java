@@ -45,7 +45,7 @@ public class WeatherActivity extends AppCompatActivity {
     public LatLng getPosition() {
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
+        String provider = locationManager.getBestProvider(criteria, true), currentCity;
 
         Location location = null;
 
@@ -87,6 +87,7 @@ public class WeatherActivity extends AppCompatActivity {
                 Date expires;
                 if (response.isSuccess()){
                     Forecast forecast = response.body();
+                    Log.i("j", "HERE IT IS: " + forecast.getAlerts());
                     if (!(forecast.getAlerts() == null)) {
                         for (Alert a : forecast.getAlerts()) {
                             title = a.getTitle();
@@ -115,7 +116,7 @@ public class WeatherActivity extends AppCompatActivity {
 
                     tv = (TextView) findViewById(R.id.textView);
                     buildString += getString(R.string.currentWeather) + " ";
-                    switch (forecast.getCurrently().getSummary()){
+                    switch (forecast.getCurrently().getIcon().toString()){
                         case "Clear-day": buildString += getString(R.string.clearDay);
                             break;
                         case "Clear-night": buildString += getString(R.string.clearNight);
