@@ -41,7 +41,7 @@
             android:layout_weight=".50"
             android:layout_height="match_parent"
             android:background="#88865D"
-            android:text="@string/title_activity_law"
+            android:text="@string/title_activity_laws"
             android:onClick="loadLaws"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
