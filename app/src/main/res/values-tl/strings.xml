@@ -2,7 +2,7 @@
 
 <resources>
     <string name="app_name" translatable="false">FishOps</string>
-    <string name="title_activity_maps">MPA</string>
+    <string name="title_activity_maps">Mapa</string>
     <string name="title_activity_settings">Settings</string>
     <string name="fishing_map" id="fishingbutton">Mapa ng Pala-isdaan</string>
 
@@ -28,7 +28,6 @@
     <string name="title_activity_law">Batas</string>
     <string name="title_activity_decree">Utos</string>
     <string name="title_activity_res">Ibang Tulong</string>
-
     <string name="title_activity_laws">Mga Batas at Utos</string>
 
     <string name="alert_dialog_1">Ikaw ay nasa  </string>
@@ -56,7 +55,7 @@
     <string name="Farenheit">Farenheit</string>
     <string name="nearestStorm">Distansya sa bagyo:</string>
     <string name="miles">milya</string>
-    
+
     <string name="title_activity_resources">Ibang Tulong</string>
     <string name="laws_full_text"><b>Babala! Labag sa batas (the Philippine Fisheries Code of 1998) ang:
 </b>\n\n
@@ -70,8 +69,9 @@
 &#8226; Makialam o mang-away ng opisyal sa gobyerno\n
 &#8226; Makialam sa sistema ng patrolya\n\n
 
+    <string name="more_info">karagdagang inpurmasyon</string>
 <b>Ang gobyerno ay magmumulta ng mga mangingisda at companya na lalabag sa mga batas na ito. Ang multa ay mag-uumpisa sa ₱5,000.00 hanggang sa mahigit kumulang na ₱45,000,000.00.</b> </string>
-    <string name="resources_full_text"><b>English:\n</b>
+    <string name="resources_full_text">
             <b>Pakiusap! I-ulat kapag nakakita ng mga ilegal na pangingisda.\n\n</b>
             <b>Philippines Bureau of Fisheries and Aquatic Resources\n</b>
                 PCA Building, Diliman, Quezon City, Philippines\n

@@ -39,21 +39,32 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".WeatherActivity"
-            android:label="@string/title_activity_weather" />
-        <activity
             android:name=".LawsDecreesActivity"
             android:label="@string/title_activity_laws" />
+        <activity android:name=".DisplayInformation"
+                  android:label="Information"/>
+        <!-- <activity -->
+        <!-- android:name=".SnowFragment" /> -->
+
+
+        <!--
+     <activity android:name=".WeatherActivity"></activity>&lt;!&ndash; ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".ResourcesActivity"
-            android:label="@string/title_activity_res"/>
+            android:label="@string/title_activity_resources"/>
+        <activity android:name=".WeatherActivity"
+            android:label="Weather"/>
     </application>
 
 </manifest>

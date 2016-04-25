@@ -25,10 +25,11 @@
     <string name="no_fishing">No Fishing</string>
 
     <string name="title_activity_weather">Weather</string>
-    <string name="title_activity_law">Law</string>
+
+    <string name="title_activity_laws">Laws &amp; Decrees</string>
+
     <string name="title_activity_decree">Decrees</string>
     <string name="title_activity_res">Resources</string>
-    <string name="title_activity_laws">Laws</string>
 
     <string name="alert_dialog_1">You have entered  </string>
     <string name="alert_dialog_2">, a Marine Protected Area</string>
@@ -627,5 +628,6 @@
                 Visayas Avenue, Diliman, 110 Quezon City, Philippines\n
                 Contact: +63 (02)929-6626
 </string>
+    <string name="more_info">More Info</string>
 
 </resources>
