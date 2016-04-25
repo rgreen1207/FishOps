@@ -25,7 +25,7 @@
     <string name="no_fishing">No Fishing</string>
 
     <string name="title_activity_weather">Weather</string>
-    <string name="title_activity_law">Law</string>
+    <string name="title_activity_law">Laws/Decrees</string>
     <string name="title_activity_decree">Decrees</string>
     <string name="title_activity_res">Resources</string>
 
