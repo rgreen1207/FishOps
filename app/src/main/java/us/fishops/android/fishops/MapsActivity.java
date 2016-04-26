@@ -196,7 +196,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if(location == null) {
             Log.i(TAG, "location object is null");
-
             LatLng manila = new LatLng(14.5995, 120.9842);
             mMap.addMarker(new MarkerOptions().position(manila).draggable(true));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
