@@ -38,27 +38,19 @@ Screenshots
 
 License
 -------------
-MIT License
+Creative Commons Attribution-ShareAlike 4.0 International Public License
+> 1. **You are free to**:
+>> a. **Share** - copy and redistribute the material in any medium or format.
+>> b. **Adapt** - remix, transform, and build upon the material for any purpose, even commercially.
+>>> The licensor cannot revoke these freedoms as long as you follow the license terms.
 
-Copyright (c) 2016 FishOps
+> 2. **Under the following terms**:
+>> a. **Attribution** - you must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that sugests the licensor endorses you or you use.
+>> b. **ShareAlike** - if you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+>>> No additional restrictions - you may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+> **Note:** View this license in the repo at "LICENSE.txt"
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
+----------
 
 # Google Maps Android API [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.google.maps.android/android-maps-utils/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.google.maps.android/android-maps-utils) [![Build Status](https://travis-ci.org/googlemaps/android-maps-utils.svg?branch=master)](https://travis-ci.org/googlemaps/android-maps-utils) ![Analytics](https://maps-ga-beacon.appspot.com/UA-12846745-20/android-maps-utils/readme?pixel)
