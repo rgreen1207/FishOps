@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "352485123444",
+    "project_id": "fishops-1290"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352485123444:android:a958e9534bbf4f5f",
+        "android_client_info": {
+          "package_name": "us.fishops.android.fishops"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352485123444-pnuupfhjib4kbneavpru74jvqg5td5av.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "us.fishops.android.fishops",
+            "certificate_hash": "C8FE27ADC64D2F3C90BC00656943D4C4A8FB3CF3"
+          }
+        },
+        {
+          "client_id": "352485123444-e38v3u474sqjdho18v6icuqp549jhgkv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+            "current_key": "AIzaSyBHXHvaX9BdVUPu6z-_9DBRDQSSTerOiGA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
