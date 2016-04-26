@@ -18,13 +18,10 @@ import android.zetterstrom.com.forecast.ForecastClient;
 import android.zetterstrom.com.forecast.ForecastConfiguration;
 import android.zetterstrom.com.forecast.models.Alert;
 import android.zetterstrom.com.forecast.models.Forecast;
-
 import com.google.android.gms.maps.model.LatLng;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Timer;
-
 import retrofit2.Callback;
 import retrofit2.Response;
 

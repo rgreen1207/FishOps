@@ -15,13 +15,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,28 +29,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.maps.android.PolyUtil;
-
-import java.io.*;
-
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private HashMap<Polygon, String> hMap = new HashMap<Polygon, String>();
     private final static String TAG = "j";
-    private GoogleApiClient mGoogleApiClient;
     private static final int REQUEST_CODE_LOCATION = 2;
-    private Marker weatherMarker;
-    //File MPA = new File("../../../../../res/PN_MPAs.txt");
 
-    ///home/ryan/Desktop/FishOps/app/src/main/java/us/fishops/android/fishops/MapsActivity.java
-    ///home/ryan/Desktop/FishOps/app/src/main/res/PN_MPAs
-    String line = null;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -64,6 +50,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -74,13 +61,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                .addOnConnectionFailedListener(this)
 //                .addApi(LocationServices.API)
 //                .build();
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         mClient = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public static int getColorWithAlpha(int color, float ratio) {
-        int newColor = 0;
+        int newColor;
         int alpha = Math.round(Color.alpha(color) * ratio);
         int r = Color.red(color);
         int g = Color.green(color);
@@ -93,12 +81,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Pass an array of Lat/Long and String name
     private void createPoly(ArrayList<LatLng> points, String name) {
+
 //        Polygon polygon = mMap.addPolygon(new PolygonOptions()
 //        .add(new LatLng(14.675757,120.619596),new LatLng(14.655245,120.892407),new LatLng(14.517079,120.903715),new LatLng(14.506132,120.647866))
 //                .strokeColor(Color.RED)
 //                .strokeWidth(3)
 //                .fillColor(getColorWithAlpha(Color.RED, 0.4f)));
-        //polygon.setClickable(true);
+//        polygon.setClickable(true);
+
         PolygonOptions options = new PolygonOptions();
         options.addAll(points);
         options.strokeColor(Color.RED);
@@ -111,7 +101,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void parse() {
         String name, cords;
-
 
         final String[] names = getResources().getStringArray(R.array.names_array);
         final String[] locs = getResources().getStringArray(R.array.loc_array);
@@ -128,11 +117,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String tokens[] = s.split(" ");
         for (int i = 0; i < tokens.length - 1; i++) {
             String cords[] = tokens[i].split(",");
-            //Log.i(TAG, Double.parseDouble(cords[0]));
             p.add(new LatLng(Double.parseDouble(cords[1]), Double.parseDouble(cords[0])));
 
         }
-        //Log.i(TAG, p.toString());
         return p;
     }
 
@@ -150,47 +137,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
-        // Add a marker in Sydney and move the camera
-        //LatLng manila = new LatLng(14.5995, 120.9842);
-        // mMap.addMarker(new MarkerOptions().position(manila).title("Marker in Manila"));
-        // mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
-        // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(14.5995, 120.9842),9.0f));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(googleMap.getCameraPosition().zoom - 0.5f));
-        //createPoly();
+
+//        Add a marker in Sydney and move the camera
+//        LatLng manila = new LatLng(14.5995, 120.9842);
+//        mMap.addMarker(new MarkerOptions().position(manila).title("Marker in Manila"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
+//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(14.5995, 120.9842),9.0f));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(googleMap.getCameraPosition().zoom - 0.5f));
+//        createPoly();
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
-        /*
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        */
+
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            // TODO: Consider calling
+//            //    ActivityCompat#requestPermissions
+//            // here to request the missing permissions, and then overriding
+//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//            //                                          int[] grantResults)
+//            // to handle the case where the user grants the permission. See the documentation
+//            // for ActivityCompat#requestPermissions for more details.
+//            return;
+//        }
+
         Location location = null;
 
-        Log.i(TAG, "before permision check");
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Request missing location permission.
-            Log.i(TAG, "missing permission");
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    REQUEST_CODE_LOCATION);
-        } else {
-            // Location permission has been granted, continue as usual.
-            Log.i(TAG, "already had permision");
-            //Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-            location = locationManager.getLastKnownLocation(provider);
-            Log.i(TAG, "set location object in else statement");
-        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
+            // Request missing location permission.
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE_LOCATION);
+        } else {
+
+            // Location permission has been granted, continue as usual.
+        }
 
         location = locationManager.getLastKnownLocation(provider);
 
@@ -201,16 +181,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(manila,10.0f));
             Log.i(TAG, "Marker set in Manila");
-            /*
-            LocationListener locationListener = new LocationListener() {
-                void onLocationChanged(Location location) {
-                    double lat = location.getLatitude();
-                    double lng = location.getLongitude();
-                    LatLng ll = new LatLng(lat, lng);
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ll, 20));
-                }
-            };
-            */
+
+//            LocationListener locationListener = new LocationListener() {
+//                void onLocationChanged(Location location) {
+//                    double lat = location.getLatitude();
+//                    double lng = location.getLongitude();
+//                    LatLng ll = new LatLng(lat, lng);
+//                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ll, 20));
+//                }
+//            };
 
         }
         else{
@@ -223,42 +202,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ll, 10.0f));
             Log.i(TAG, "marker added LatLng");
         }
-        //location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        //location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        //mMap.setMyLocationEnabled(true);
-        //Log.i(TAG, "before setting myLatLong");
-        //Log.i(TAG, "Lat: " + location.getLatitude());
-        //LatLng myLatLong = new LatLng(location.getLatitude(),location.getLongitude());
-        //mMap.addMarker(new MarkerOptions().position(myLatLong).title("My Location"));
-        //Log.i(TAG, "before camera zoom");
-        //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLatLong, 12.0f));
-        //Log.i(TAG, "after camera zoom");
+
+//        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//        location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+//        mMap.setMyLocationEnabled(true);
+//        Log.i(TAG, "before setting myLatLong");
+//        Log.i(TAG, "Lat: " + location.getLatitude());
+//        LatLng myLatLong = new LatLng(location.getLatitude(),location.getLongitude());
+//        mMap.addMarker(new MarkerOptions().position(myLatLong).title("My Location"));
+//        Log.i(TAG, "before camera zoom");
+//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLatLong, 12.0f));
+//        Log.i(TAG, "after camera zoom");
+
         parse();
-        //createHashMap();
 
         googleMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
             public void onPolygonClick(Polygon polygon) {
                 String name = hMap.get(polygon);
                 sendMessage(name);
-
             }
         });
 
         googleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
             @Override
-            public void onMarkerDragStart(Marker marker) {
-
-            }
+            public void onMarkerDragStart(Marker marker) {}
 
             @Override
-            public void onMarkerDrag(Marker marker) {
-
-            }
+            public void onMarkerDrag(Marker marker) {}
 
             @Override
             public void onMarkerDragEnd(Marker marker) {
+
                 //Toast.makeText(MapsActivity.this, marker.getPosition().toString(), Toast.LENGTH_SHORT).show();
+
                 boolean contained = false;
                 String name = "";
                 for(Map.Entry<Polygon, String> entry : hMap.entrySet()) {
@@ -270,6 +247,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 }
                 if(contained){
+
                     //Toast.makeText(MapsActivity.this, "Entered a MPA", Toast.LENGTH_SHORT).show();
 
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MapsActivity.this);
@@ -291,47 +269,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void sendMessage(String name) {
+
         //Toast.makeText(MapsActivity.this, name, Toast.LENGTH_SHORT).show();
+
         Intent intent = new Intent(this, DisplayInformation.class);
         intent.putExtra(DisplayInformation.EXTRA_MESSAGE, name);
         startActivity(intent);
-    }
-
-    public LatLng getMarkerPosition(){
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
-
-        Location location = null;
-
-        Log.i(TAG, "before permision check");
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Request missing location permission.
-            Log.i(TAG, "missing permission");
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    REQUEST_CODE_LOCATION);
-        } else {
-            Log.i(TAG, "already had permision");
-            location = locationManager.getLastKnownLocation(provider);
-            Log.i(TAG, "set location in else statement");
-        }
-
-
-        location = locationManager.getLastKnownLocation(provider);
-
-        if(location == null) {
-            Log.i(TAG, "location is null");
-        }
-        else {
-            double lat = location.getLatitude();
-            double lng = location.getLongitude();
-
-            LatLng ll = new LatLng(lat, lng);
-            //weatherMarker.setPosition(ll);
-        }
-        return this.weatherMarker.getPosition();
     }
 
     @Override
@@ -344,10 +287,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
                 "Maps Page", // TODO: Define a title for the content shown.
+
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
+
                 // TODO: Make sure this auto-generated app URL is correct.
                 Uri.parse("android-app://us.fishops.android.fishops/http/host/path")
         );
@@ -363,10 +308,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
                 "Maps Page", // TODO: Define a title for the content shown.
+
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
+
                 // TODO: Make sure this auto-generated app URL is correct.
                 Uri.parse("android-app://us.fishops.android.fishops/http/host/path")
         );
