@@ -188,14 +188,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.i(TAG, "already had permision");
             //Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
             location = locationManager.getLastKnownLocation(provider);
-            Log.i(TAG, "set location in else statement");
+            Log.i(TAG, "set location object in else statement");
         }
 
 
         location = locationManager.getLastKnownLocation(provider);
 
         if(location == null) {
-            Log.i(TAG, "location is null");
+            Log.i(TAG, "location object is null");
+
+            LatLng manila = new LatLng(14.5995, 120.9842);
+            mMap.addMarker(new MarkerOptions().position(manila).draggable(true));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(manila,10.0f));
+            Log.i(TAG, "Marker set in Manila");
             /*
             LocationListener locationListener = new LocationListener() {
                 void onLocationChanged(Location location) {
@@ -206,14 +212,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             };
             */
+
         }
         else{
             double lat= location.getLatitude();
             double lng = location.getLongitude();
-
             LatLng ll = new LatLng(lat, lng);
+            Log.i(TAG, "LatLng set from location object");
+
             mMap.addMarker(new MarkerOptions().position(ll).draggable(true));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ll, 9));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ll, 10.0f));
+            Log.i(TAG, "marker added LatLng");
         }
         //location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         //location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
