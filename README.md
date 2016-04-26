@@ -49,7 +49,7 @@ Creative Commons Attribution-ShareAlike 4.0 International Public License
 >> b. **ShareAlike** - if you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 >>> No additional restrictions - you may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
-> **Note:** View this license in the repo at "LICENSE.txt"
+> **Note:** View this license in the repository at "LICENSE.txt"
 
 ----------
 
