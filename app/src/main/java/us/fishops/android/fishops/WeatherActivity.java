@@ -8,33 +8,22 @@ import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
-import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 import android.zetterstrom.com.forecast.ForecastClient;
 import android.zetterstrom.com.forecast.ForecastConfiguration;
 import android.zetterstrom.com.forecast.models.Alert;
 import android.zetterstrom.com.forecast.models.Forecast;
 import com.google.android.gms.maps.model.LatLng;
-
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Timer;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class WeatherActivity extends AppCompatActivity {
     private TextView tv;
-
-//    final Handler handler = new Handler();
-//    Timer timer = new Timer();
-
-    private MapsActivity mappy;
     private static final int REQUEST_CODE_LOCATION = 2;
     private DecimalFormat df = new DecimalFormat("#.#");
     private Location location;
@@ -43,7 +32,12 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        mappy = new MapsActivity();
+        getWeather(getPosition());
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
         getWeather(getPosition());
     }
 
