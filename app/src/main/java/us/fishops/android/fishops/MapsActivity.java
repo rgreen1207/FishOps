@@ -14,10 +14,17 @@ import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.internal.LocationRequestInternal;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,7 +39,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
     private GoogleMap mMap;
     private HashMap<Polygon, String> hMap = new HashMap<Polygon, String>();
@@ -55,71 +63,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//        // Creat an instance of GoogleAPIClient
+//        if (mClient == null) {
+//            mClient = new GoogleApiClient.Builder(this)
 //                .addConnectionCallbacks(this)
 //                .addOnConnectionFailedListener(this)
 //                .addApi(LocationServices.API)
 //                .build();
+//        }
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        mClient = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-    public static int getColorWithAlpha(int color, float ratio) {
-        int newColor;
-        int alpha = Math.round(Color.alpha(color) * ratio);
-        int r = Color.red(color);
-        int g = Color.green(color);
-        int b = Color.blue(color);
-        newColor = Color.argb(alpha, r, g, b);
-        return newColor;
-    }
-
-    private ArrayList<LatLng> points = new ArrayList<LatLng>();
-
-    // Pass an array of Lat/Long and String name
-    private void createPoly(ArrayList<LatLng> points, String name) {
-
-//        Polygon polygon = mMap.addPolygon(new PolygonOptions()
-//        .add(new LatLng(14.675757,120.619596),new LatLng(14.655245,120.892407),new LatLng(14.517079,120.903715),new LatLng(14.506132,120.647866))
-//                .strokeColor(Color.RED)
-//                .strokeWidth(3)
-//                .fillColor(getColorWithAlpha(Color.RED, 0.4f)));
-//        polygon.setClickable(true);
-
-        PolygonOptions options = new PolygonOptions();
-        options.addAll(points);
-        options.strokeColor(Color.RED);
-        options.strokeWidth(3);
-        options.fillColor(getColorWithAlpha(Color.RED, 0.4f));
-        Polygon polygon = mMap.addPolygon(options);
-        polygon.setClickable(true);
-        hMap.put(polygon, name);
-    }
-
-    private void parse() {
-        String name, cords;
-
-        final String[] names = getResources().getStringArray(R.array.names_array);
-        final String[] locs = getResources().getStringArray(R.array.loc_array);
-        for (int i = 0; i < names.length; i++) {
-            name = names[i];
-            cords = locs[i];
-            points = generatePoints(cords);
-            createPoly(points, name);
-        }
-    }
-
-    private ArrayList<LatLng> generatePoints(String s) {
-        ArrayList<LatLng> p = new ArrayList<LatLng>();
-        String tokens[] = s.split(" ");
-        for (int i = 0; i < tokens.length - 1; i++) {
-            String cords[] = tokens[i].split(",");
-            p.add(new LatLng(Double.parseDouble(cords[1]), Double.parseDouble(cords[0])));
-
-        }
-        return p;
+        mClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addApi(AppIndex.API).build();
     }
 
     /**
@@ -134,20 +91,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
-
-//        Add a marker in Sydney and move the camera
-//        LatLng manila = new LatLng(14.5995, 120.9842);
-//        mMap.addMarker(new MarkerOptions().position(manila).title("Marker in Manila"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(manila));
-//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(14.5995, 120.9842),9.0f));
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(googleMap.getCameraPosition().zoom - 0.5f));
-//        createPoly();
+        Location location;
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
+        Log.i("j", "HERE IT IS: " + provider);
+
+        if (ActivityCompat.checkSelfPermission(
+            this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        }
+        else {
+            // Request missing location permission. If not granted, disable all functionality until granted.
+            ActivityCompat.requestPermissions(
+            this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE_LOCATION);
+        }
 
 //        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 //            // TODO: Consider calling
@@ -160,18 +120,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //            return;
 //        }
 
-        Location location = null;
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            // Request missing location permission.
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE_LOCATION);
-        } else {
-
-            // Location permission has been granted, continue as usual.
-        }
-
-        location = locationManager.getLastKnownLocation(provider);
+        location = locationManager.getLastKnownLocation("network");
 
         if(location == null) {
             Log.i(TAG, "location object is null");
@@ -265,6 +214,62 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         });
+    }
+
+    public static int getColorWithAlpha(int color, float ratio) {
+        int newColor;
+        int alpha = Math.round(Color.alpha(color) * ratio);
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+        newColor = Color.argb(alpha, r, g, b);
+        return newColor;
+    }
+
+    private ArrayList<LatLng> points = new ArrayList<LatLng>();
+
+    // Pass an array of Lat/Long and String name
+    private void createPoly(ArrayList<LatLng> points, String name) {
+
+//        Polygon polygon = mMap.addPolygon(new PolygonOptions()
+//        .add(new LatLng(14.675757,120.619596),new LatLng(14.655245,120.892407),new LatLng(14.517079,120.903715),new LatLng(14.506132,120.647866))
+//                .strokeColor(Color.RED)
+//                .strokeWidth(3)
+//                .fillColor(getColorWithAlpha(Color.RED, 0.4f)));
+//        polygon.setClickable(true);
+
+        PolygonOptions options = new PolygonOptions();
+        options.addAll(points);
+        options.strokeColor(Color.RED);
+        options.strokeWidth(3);
+        options.fillColor(getColorWithAlpha(Color.RED, 0.4f));
+        Polygon polygon = mMap.addPolygon(options);
+        polygon.setClickable(true);
+        hMap.put(polygon, name);
+    }
+
+    private void parse() {
+        String name, cords;
+
+        final String[] names = getResources().getStringArray(R.array.names_array);
+        final String[] locs = getResources().getStringArray(R.array.loc_array);
+        for (int i = 0; i < names.length; i++) {
+            name = names[i];
+            cords = locs[i];
+            points = generatePoints(cords);
+            createPoly(points, name);
+        }
+    }
+
+    private ArrayList<LatLng> generatePoints(String s) {
+        ArrayList<LatLng> p = new ArrayList<LatLng>();
+        String tokens[] = s.split(" ");
+        for (int i = 0; i < tokens.length - 1; i++) {
+            String cords[] = tokens[i].split(",");
+            p.add(new LatLng(Double.parseDouble(cords[1]), Double.parseDouble(cords[0])));
+
+        }
+        return p;
     }
 
     public void sendMessage(String name) {

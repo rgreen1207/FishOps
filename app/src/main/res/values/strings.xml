@@ -47,7 +47,7 @@
     <string name="defaultWeather">Unknown</string>
     <string name="tempOf">With a temperature of:</string>
     <string name="celsius">Celsius</string>
-    <string name="Farenheit">Farenheit</string>
+    <string name="Farenheit">Fahrenheit</string>
     <string name="nearestStorm">Distance to nearest storm:</string>
     <string name="miles">miles</string>
     <string name="api_attribution">Powered by Forecast</string>
@@ -61,6 +61,9 @@
     <string name="dialog_ok">OK</string>
     <string name="dialog_retry">Retry</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="location">Location:</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
 
     <!-- These are the fishing laws for the Philippines -->
     <string name="laws_full_text">
