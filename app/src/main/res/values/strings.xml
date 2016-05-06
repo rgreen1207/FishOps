@@ -64,6 +64,7 @@
     <string name="location">Location:</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
+    <string name="vicinity">In your vicinity</string>
 
     <!-- These are the fishing laws for the Philippines -->
     <string name="laws_full_text">

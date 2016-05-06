@@ -633,5 +633,6 @@
     <string name="location">Lokasyon:</string>
     <string name="latitude">Latitud</string>
     <string name="longitude">Longhitud </string>
+    <string name="vicinity">sa iyong paligid</string>
 </resources>
 
