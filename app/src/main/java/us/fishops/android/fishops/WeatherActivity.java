@@ -72,10 +72,10 @@ public class WeatherActivity extends AppCompatActivity {
         String provider = locationManager.getBestProvider(criteria, true);
         double lat, lng;
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             // Request missing location permission.
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_CODE_LOCATION);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE_LOCATION);
         }
 
         // When in debug mode, grab the mock location's coordinates. It shouldn't be grabbed in release mode.
@@ -148,7 +148,7 @@ public class WeatherActivity extends AppCompatActivity {
                         weatherType = "unknown";
                     }
 
-                    buildString += "\n\n" + getResources().getString(R.string.location) + ": " +
+                    buildString += "\n\n" + getResources().getString(R.string.location) +
                                    "\n\t" + parseReverseGeocode(getReverseGeocode(markerPos.latitude, markerPos.longitude)).toUpperCase() +
                                    "\n\t" + getString(R.string.latitude) + ": " + markerPos.latitude +
                                    "\n\t" + getString(R.string.longitude) + ": " + markerPos.longitude +
@@ -205,21 +205,28 @@ public class WeatherActivity extends AppCompatActivity {
     protected String parseReverseGeocode(List<Address> addresses) {
         Address address;
         if (addresses == null || addresses.size() == 0) {
-//            Toast.makeText(WeatherActivity.this, "No location found", Toast.LENGTH_SHORT)
-//                    .show();
             return getResources().getString(R.string.defaultWeather);
         }
-        address = addresses.get(0);
 
-        String aLine = "";
-        for (int addr = 0; addr <= address.getMaxAddressLineIndex() - 2; addr++) {
-            aLine = aLine.length() > 0 ? aLine + "\n"
-                    + String.valueOf(address.getAddressLine(addr)) : String
-                    .valueOf(address.getAddressLine(addr));
-        }
+        address = addresses.get(0);
+        String aLine = "", ftr = "", thr = "", loc = "", adm = "", cnt = "";
+
+        // First we check for null references before assigning variables
+        if (address.getFeatureName() != null){ aLine += ftr = address.getFeatureName(); }
+        if (address.getThoroughfare() != null){ thr = address.getThoroughfare(); }
+        if (address.getLocality() != null){ loc = address.getLocality(); }
+        if (address.getAdminArea() != null){ adm = address.getAdminArea(); }
+        if (address.getCountryName() != null){ cnt = address.getCountryName(); }
+
+        // This will produce something like: 100-110, Campus Center
+        //                                   Seaside, California, United States
+        if (!thr.equals(ftr) && !thr.matches("[ \\t\\n\\x0b\\r\\f]*")){ aLine += ", " + thr; }
+        if (!loc.equals(thr) && !loc.equals(ftr) && !loc.matches("[ \\t\\n\\x0b\\r\\f]*")){ aLine += "\n\t" + loc; }
+        if (!adm.equals(loc) && !adm.equals(thr) && !adm.equals(ftr) && !adm.matches("[ \\t\\n\\x0b\\r\\f]*")){ aLine += ", " + adm; }
+        if (!cnt.equals(adm) && !cnt.equals(loc) && !cnt.equals(thr) && !cnt.equals(ftr) && !cnt.matches("[ \\t\\n\\x0b\\r\\f]*")){ aLine += ", " + cnt; }
+
         address.setAddressLine(0, aLine);
-//        Toast.makeText(WeatherActivity.this, aLine, Toast.LENGTH_LONG)
-//                .show();
+
         return (aLine.matches("[ \\t\\n\\x0b\\r\\f]*") ? getResources().getString(R.string.defaultWeather) : aLine);
     }
 
